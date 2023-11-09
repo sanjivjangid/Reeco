@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -21,6 +21,10 @@ const Order = () => {
   const [currentSelected, setCurrentSelected] = useState('');
 
   const { products } = useSelector((state) => state.products);
+
+  const getData = useCallback(() => {
+    dispatch(loadData(productsData));
+  }, [dispatch]);
 
   const handleNo = () => {
     dispatch(updateStatusAction({ id: currentSelected.id, status: 'DECLINED' }));
@@ -45,8 +49,8 @@ const Order = () => {
   };
 
   useEffect(() => {
-    dispatch(loadData(productsData));
-  }, []);
+    getData();
+  }, [getData]);
 
   return (
     <Grid container>

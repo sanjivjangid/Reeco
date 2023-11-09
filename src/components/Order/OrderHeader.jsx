@@ -8,7 +8,7 @@ const StyledOrderName = styled(Typography)(() => ({
   display: 'inline'
 }));
 
-const StyledOrderBox = styled(Typography)(() => ({
+const StyledOrderBox = styled(Box)(() => ({
   display: 'flex',
   justifyContent: 'space-between'
 }));

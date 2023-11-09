@@ -27,7 +27,6 @@ const RenderImage = () => {
 };
 
 const RenderStatus = ({ row }) => {
-  let status = '';
   if (row.status === 'APPROVED') {
     return <Chip label='Approved' color="success" />
   }
@@ -103,7 +102,6 @@ const OrderTable = ({ products, updateStatus }) => {
       columns={columns}
       initialState={{}}
       disableRowSelectionOnClick
-      pagination={false}
     />
   );
 };
